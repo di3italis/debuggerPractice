@@ -16,14 +16,18 @@ return `Recycle Me!`
 function shouldRecycle(item) {
   if (!item.plastic) {
     return 'Recycle Me!'
+  }
+   else if (item.plastic && item.color !== "black") {
+    return 'Recycle Me!'
   } else if (item.color === 'black') {
     return 'Currently, cannot be recycled.'
   } else if (item.aluminum) {
     return 'Recycle Me!'
   } else if (item.paper) {
     return 'Recycle Me!'
+  } else {
+    return 'Cannot be recycled'
   }
-  return 'Cannot be recycled'
 }
 
 
@@ -33,7 +37,7 @@ const waterBottle = {
   aluminum: false,
   paper: false
 };
-
+debugger
 console.log(shouldRecycle(waterBottle)); // 'Recycle Me!'
 
 const tomatoCan = {
@@ -55,7 +59,7 @@ const saladContainer = {
 console.log(shouldRecycle(saladContainer)); // 'Currently, cannot be recycled.'
 
 const styrofoamContainer = {
-  plastic: false,
+  plastic: true,
   color: 'black',
   aluminum: false,
   paper: false
